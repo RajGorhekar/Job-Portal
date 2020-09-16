@@ -137,53 +137,6 @@
 </section>
 {% if page_obj %}
 
-<section class="site-section" id="next">
-  <div class="container">
-
-    <div class="row mb-5 justify-content-center">
-      <div class="col-md-7 text-center">
-        <h2 class="section-title mb-2">{{ total }} Related Jobs</h2>
-      </div>
-    </div>
-
-    <ul class="job-listings mb-5">
-      {% for job in page_obj %}
-      <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-        <a href="{% url 'jobapp:single-job' job.id %}"></a>
-        <div class="job-listing-logo">
-          <img src="{% static 'images/i.jpg' %}" alt="Image" class="img-fluid">
-        </div>
-
-        <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-          <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-            <h2>{{ job.title}}</h2>
-          </div>
-          <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-            <span class="icon-room"></span> {{ job.location }}
-          </div>
-          <div class="job-listing-meta">
-            <span class="badge badge-danger">
-              {% if job.job_type == '1' %}
-              Full Time
-              {% elif job.job_type == '2'%}
-              Part Time
-              {% else  %}
-              Internship
-              {% endif %}
-            </span>
-          </div>
-        </div>
-      </li>
-      {% endfor %}
-
-
-    </ul>
-
-
-    {% include 'jobapp/paginator.html' %}
-
-  </div>
-</section>
 {% endif %}
 
 {% endblock content %}

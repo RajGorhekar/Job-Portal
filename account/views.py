@@ -102,7 +102,7 @@ def user_logIn(request):
         if request.method == 'POST':
             if form.is_valid():
                 auth.login(request, form.get_user())
-                return HttpResponseRedirect(get_success_url(request))
+                return HttpResponseRedirect('http://127.0.0.1:8000/')
     context = {
         'form': form,
     }
